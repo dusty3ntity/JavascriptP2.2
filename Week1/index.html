@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head lang="uk">
+    <meta charset="UTF-8" />
+    <title>js.buylist.oop.in.ua</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="container cart-main">
+        <div class="inner-container">
+          <div class="segment cart-search first-child">
+            <input type="text" placeholder="Назва товару" required />
+            <button id="search" class="rectangular">Додати</button>
+          </div>
+
+          <div class="segment goods">
+            <div class="goods-title">
+              <span>Помідори</span>
+            </div>
+            <div class="plus-minus-buttons">
+              <button class="circular minus" disabled>-</button>
+              <span class="goods-count">1</span>
+              <button class="circular plus">+</button>
+            </div>
+            <div class="bought-remove-buttons">
+              <button class="rectangular bought">Куплено</button>
+              <button class="rectangular remove" title="Видалити">x</button>
+            </div>
+          </div>
+
+          <div class="segment goods">
+            <div class="goods-title">
+              <span>Печиво</span>
+            </div>
+            <div class="plus-minus-buttons">
+              <button class="circular minus" disabled>-</button>
+              <span class="goods-count">1</span>
+              <button class="circular plus">+</button>
+            </div>
+            <div class="bought-remove-buttons">
+              <button class="rectangular bought">Куплено</button>
+              <button class="rectangular remove" title="Видалити">x</button>
+            </div>
+          </div>
+
+          <div class="segment goods">
+            <div class="goods-title">
+              <span>Сир</span>
+            </div>
+            <div class="plus-minus-buttons">
+              <button class="circular minus" disabled>-</button>
+              <span class="goods-count">1</span>
+              <button class="circular plus">+</button>
+            </div>
+            <div class="bought-remove-buttons">
+              <button class="rectangular bought">Куплено</button>
+              <button class="rectangular remove" title="Видалити">x</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container cart-checkout">
+        <div class="inner-container">
+          <div class="segment cart-checkout-title">
+            <h3>Залишилося</h3>
+          </div>
+          <div class="segment cart-checkout-content">
+            <span class="goods-label">
+              <span class="goods-title">Помідори</span>
+              <span class="goods-count">1</span>
+            </span>
+
+            <span class="goods-label">
+              <span class="goods-title">Печиво</span>
+              <span class="goods-count">1</span>
+            </span>
+
+            <span class="goods-label">
+              <span class="goods-title">Сир</span>
+              <span class="goods-count">1</span>
+            </span>
+          </div>
+
+          <div class="segment cart-checkout-title">
+            <h3>Куплено</h3>
+          </div>
+          <div class="segment cart-checkout-content"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
