@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head lang="uk">
+    <meta charset="UTF-8" />
+    <title>js.buylist.oop.in.ua</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="container cart-main">
+        <div class="inner-container">
+          <div class="segment cart-search first-child">
+            <input type="text" id="new-field" placeholder="Назва товару" required />
+            <button id="new-button" class="rectangular" data-tooltip="Додати">Додати</button>
+          </div>
+
+          <div id="item" hidden>
+            <div class="segment goods">
+              <div class="goods-title">
+                <span class="goods-title-uncrossed">Помідори</span>
+                <span class="goods-title-crossed" hidden>Помідори</span>
+                <input type="text" class="title-field" placeholder="Нова назва" required hidden/>
+              </div>
+              <div class="plus-minus-buttons">
+                <button class="circular minus" data-tooltip="Зменшити" disabled>-</button>
+                <span class="goods-count">1</span>
+                <button class="circular plus" data-tooltip="Збільшити">+</button>
+              </div>
+              <div class="bought-remove-buttons">
+                <button class="rectangular bought-not-bought bought" data-tooltip="Куплено">Куплено</button>
+                <button class="rectangular remove" data-tooltip="Видалити">x</button>
+                <button class="rectangular bought-not-bought not-bought" data-tooltip="Не куплено" hidden>Не куплено</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container cart-checkout">
+        <div class="inner-container">
+          <div class="segment cart-checkout-title">
+            <h3>Залишилося</h3>
+          </div>
+
+          <div class="segment cart-checkout-content checkout-remaining">
+
+            <span id="item-checkout" hidden>
+              <span class="goods-label">
+                <span class="goods-title">Помідори</span>
+                <span class="goods-count">1</span>
+              </span>
+            </span>
+
+          </div>
+
+          <div class="segment cart-checkout-title">
+            <h3>Куплено</h3>
+          </div>
+          <div class="segment cart-checkout-content checkout-bought"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="badge">
+      <div id="badge-title">
+        <h2>Buy List</h2>
+      </div>
+      <div id="badge-author">
+        <span id="author-title">Created by:</span>
+        <span id="author-name">Vadym Ohyr</span>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,311 @@
+body {
+    background: #dadada;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.main-container {
+    margin: 100px auto 0;
+    max-width: 1150px;
+}
+
+.container {
+    vertical-align: top;
+    float: left;
+}
+
+.cart-main {
+    width: 70%;
+    min-width: 300px;
+}
+
+.cart-checkout {
+    width: 30%;
+    min-width: 100px;
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+    }
+}
+
+.inner-container {
+    margin: 14px;
+    background-color: white;
+    border-radius: 0.3em;
+    box-shadow: 0 0 16px rgba(153, 153, 153, 0.5);
+}
+
+.segment {
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    padding: 16px;
+}
+
+.first-child {
+    border: none;
+}
+
+input {
+    flex: 1 0 auto;
+    padding: 9px;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 2px;
+    box-shadow: 0 0 0 0 transparent inset;
+}
+
+input:focus {
+    outline: 1px solid #a6d8ff;
+}
+
+.title-field {
+    width: 80%;
+    padding: 2px;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+button.rectangular {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 -0.2em 0 0 rgba(34, 36, 38, 0.15) inset;
+}
+
+button#new-button {
+    font-weight: 700;
+    margin-left: -2px;
+    background: #2185d0;
+    color: white;
+    font-size: 1.08em;
+    width: 106px;
+    border-radius: 0 3px 3px 0;
+}
+
+button#new-button:hover {
+    background: #0f79ca;
+}
+
+button#new-button:active {
+    background: #0d6bb3;
+}
+
+.goods {
+    padding: 6px 16px;
+}
+
+.goods,
+.cart-search {
+    display: flex;
+}
+
+.cart-main .goods-title {
+    width: 25%;
+    margin-top: 8px;
+}
+
+.cart-main .plus-minus-buttons {
+    width: 40%;
+    text-align: center;
+}
+
+.cart-main .bought-remove-buttons {
+    width: 35%;
+    text-align: right;
+}
+
+button.circular {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    border: none;
+    box-shadow: 0 -3px 0 0 rgba(34, 36, 38, 0.15) inset;
+}
+
+button.minus {
+    background: #db2929;
+}
+
+button:disabled.minus {
+    background: #ee9e9d;
+}
+
+button.minus:hover {
+    background: #c42525;
+}
+
+button:disabled.minus:hover {
+    background: #be7f7e;
+}
+
+button.minus:active {
+    background: #a52020;
+}
+
+.cart-main .goods-count {
+    padding: 8px;
+    line-height: 36px;
+    background: #e8e8e8;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.goods-title-crossed {
+  text-decoration: line-through;
+}
+
+button.plus {
+    background: #21ba45;
+}
+
+button.plus:hover {
+    background: #1ea73e;
+}
+
+button.plus:active {
+    background: #0d942d;
+}
+
+button.bought-not-bought {
+    width: 80px;
+    height: 32px;
+    background: #f3f3f3;
+}
+
+button.bought-not-bought:hover {
+    background: #dad9d9;
+}
+
+button.bought-not-bought:active {
+    background: #c2c2c2;
+}
+
+button.not-bought {
+    width: 90px;
+}
+
+button.remove {
+    width: 32px;
+    height: 32px;
+    background: #db2929;
+    color: white;
+    font-weight: 800;
+}
+
+button.remove:hover {
+    background: #c02323;
+}
+
+button.remove:active {
+    background: #9e2020;
+}
+
+h3 {
+    margin: 0;
+}
+
+.cart-checkout .goods-label {
+    display: inline-block;
+    background: #e8e8e8;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin: 0 3px 1px 0;
+    margin-bottom: 3px;
+}
+
+.cart-checkout .goods-count {
+    background: #ef731b;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+#badge-title {
+    text-align: center;
+}
+
+#badge {
+    position: fixed;
+    bottom: -50px;
+    left: 100px;
+    background: #af02da;
+    color: white;
+    padding: 0 20px;
+    border-radius: 20px 20px 0 0;
+    transition: all 1s ease;
+    padding-bottom: 10px;
+}
+
+#badge:hover {
+    background: #4c01da;
+    transform: translate(0, -50px);
+}
+
+#author-name {
+    display: block;
+    padding-top: 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media print {
+    #badge-title {
+        display: none;
+    }
+
+    #badge {
+        color: black;
+        background: white;
+        border: 4px solid #af02da;
+        border-bottom: none;
+        padding-top: 10px;
+        bottom: 0;
+    }
+}
+
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    bottom: 100%;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 10px 18px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    background: #af02da;
+    color: white;
+    transform: translate(-50%, -5px) scale(0.5);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+[data-tooltip]:hover:before {
+    transition-delay: 0.3s;
+    transform: translate(-50%, -5px) scale(1);
+}
