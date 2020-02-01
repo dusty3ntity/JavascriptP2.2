@@ -16,7 +16,7 @@ body {
 
 .cart-main {
   width: 70%;
-  min-width: 400px;
+  min-width: 300px;
 }
 
 .cart-checkout {
@@ -24,7 +24,7 @@ body {
   min-width: 100px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
   .container {
     width: 100%;
   }
@@ -207,7 +207,7 @@ h3 {
   border-radius: 4px;
   font-size: 11px;
   margin: 0 3px 1px 0;
-  margin-bottom: 3px !important;
+  margin-bottom: 3px;
 }
 
 .cart-checkout .goods-count {
