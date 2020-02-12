@@ -60,7 +60,7 @@ $(function() {
         });
 
         function updateName() {
-            let name = itemNameField.val();
+            let name = itemNameField.val().trim();
             if (name == null || name.length < 1) {
                 name = itemName.text();
             }
@@ -150,9 +150,9 @@ $(function() {
     });
 
     function newItem() {
-        let val = ADD_FIELD.val();
+        let val = ADD_FIELD.val().trim();
         if (val == null || val.length === 0) return;
-        addItem(ADD_FIELD.val());
+        addItem(val);
         ADD_FIELD.val("");
     }
 
