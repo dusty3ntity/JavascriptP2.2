@@ -1,0 +1,47 @@
+@backgroundColor: #fefef4;
+
+#pizza-main {
+  margin-right: @cartWidth;
+
+  #pizza-list {
+    padding: 30px 10px 50px 10px;
+  }
+
+  #header {
+    padding-top: 20px;
+    text-align: center;
+
+    #header-title {
+      display: inline-block;
+    }
+
+    #header-count {
+      background: @mainColorDarker;
+      color: white;
+      margin-left: 4px;
+      border-radius: 16px;
+      padding: 2px 8px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  #filters {
+    .nav-item {
+      margin: 0 2px;
+      .active {
+        background: @mainColorDarker;
+        color: white;
+      }
+    }
+
+    .nav-item:hover {
+      background: #eee;
+      border-radius: 4px;
+    }
+
+    .nav-pills a {
+      color: @mainColorDarker;
+    }
+  }
+}

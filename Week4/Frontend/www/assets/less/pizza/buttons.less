@@ -1,0 +1,72 @@
+@buttonsMainColor: #eca032;
+@buttonsTextColor: white;
+@buttonsBorderDarkening: 5%;
+@buttonsHoverDarkening: 5%;
+@buttonsActiveDarkening: 10%;
+
+@removeButtonBackgroundColor: #eeeced;
+
+.btn {
+  transition: none;
+}
+
+.btn-buy {
+  background: @buttonsMainColor;
+  color: @buttonsTextColor;
+  border-color: darken(@buttonsMainColor, @buttonsHoverDarkening);
+}
+
+.btn-buy:hover {
+    background: darken(@buttonsMainColor, @buttonsHoverDarkening);
+    color: @buttonsTextColor;
+}
+
+.btn-buy:active {
+    background: darken(@buttonsMainColor, @buttonsActiveDarkening);
+}
+
+.btn-order {
+  background: @buttonsMainColor;
+  color: @buttonsTextColor;
+  width: 90%;
+  font-size: 16px;
+  font-weight: bold;
+  border-color: darken(@buttonsMainColor, @buttonsBorderDarkening);
+}
+
+.btn-order:hover {
+  background: darken(@buttonsMainColor, @buttonsHoverDarkening);
+  color: @buttonsTextColor;
+}
+
+.btn-order:active {
+  background: darken(@buttonsMainColor, @buttonsActiveDarkening);
+}
+
+#cart {
+  .item-buttons {
+
+    .btn {
+      border-radius: 16px;
+      padding: 1px 6px;
+      margin: 0 6px;
+      outline: none;
+    }
+
+    .remove {
+      margin-left: 3px;
+      padding: 0 6px;
+      background: #eeeced;
+      color: @mainColor;
+      border: 1px solid lightgray;
+    }
+
+    .remove:hover {
+      background: darken(@removeButtonBackgroundColor, 5%);
+    }
+
+    .remove:active {
+      background: darken(@removeButtonBackgroundColor, 10%);
+    }
+  }
+}

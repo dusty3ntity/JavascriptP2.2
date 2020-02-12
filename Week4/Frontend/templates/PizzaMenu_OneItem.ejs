@@ -1,0 +1,41 @@
+<%
+
+function getIngredientsArray(pizza) {
+    //Отримує вміст піци
+    var content = pizza.content;
+    var result = [];
+
+    //Object.keys повертає масив ключів в об’єкті JavaScript
+
+    Object.keys(content).forEach(function(key){
+
+        //a.concat(b) створює спільний масив із масивів a та b
+        result = result.concat(content[key]);
+    });
+
+    return result;
+}
+
+   %>
+<div class="col-md-6 col-lg-4 pizza-card">
+    <div class="thumbnail">
+        <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
+
+        <% if(pizza.is_new) { %>
+        <span class="label label-danger">Нова</span>
+        <% } else if(pizza.is_popular) {%>
+        <span class="label label-success">Популярна</span>
+        <% } %>
+
+        <div class="caption">
+            <span class="title"><%= pizza.title %></span>
+            <div class="type"><%= pizza.type %></div>
+            <div class="description">
+                <%= getIngredientsArray(pizza).join(", ") %>
+            </div>
+        </div>
+
+        <!-- Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір -->
+        <button class="btn btn-primary buy-big">Купити велику</button>
+    </div>
+</div>
