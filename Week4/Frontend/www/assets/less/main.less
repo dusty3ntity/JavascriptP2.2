@@ -1,6 +1,7 @@
 @mainColor: #eca032;
 @mainColorDarker: #ea862e;
 @secondaryColor: gray;
+@animationDuration: 0.5s;
 
 @cartWidth: 300px;
 
@@ -13,6 +14,19 @@
 @import "pizza/labels";
 
 #wrapper {
-  width: 100%;
   background: @backgroundColor;
+}
+
+#pizza-main.cart-visible {
+  margin-right: 0;
+}
+
+#cart.cart-visible {
+  right: -@cartWidth;
+}
+
+@media (max-width: 500px) {
+  #pizza-main {
+    margin-right: 0;
+  }
 }

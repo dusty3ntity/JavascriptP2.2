@@ -17,12 +17,12 @@
 }
 
 .btn-buy:hover {
-    background: darken(@buttonsMainColor, @buttonsHoverDarkening);
-    color: @buttonsTextColor;
+  background: darken(@buttonsMainColor, @buttonsHoverDarkening);
+  color: @buttonsTextColor;
 }
 
 .btn-buy:active {
-    background: darken(@buttonsMainColor, @buttonsActiveDarkening);
+  background: darken(@buttonsMainColor, @buttonsActiveDarkening);
 }
 
 .btn-order {
@@ -45,7 +45,6 @@
 
 #cart {
   .item-buttons {
-
     .btn {
       border-radius: 16px;
       padding: 1px 6px;
@@ -68,5 +67,38 @@
     .remove:active {
       background: darken(@removeButtonBackgroundColor, 10%);
     }
+  }
+}
+
+#cart-toggler {
+  position: absolute;
+  width: 44px;
+  height: 100px;
+  left: -44px;
+  top: 45%;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  i {
+    font-size: 20px;
+  }
+
+  #arrow-hide {
+    display: block;
+  }
+
+  #cart-icon {
+    display: none;
+  }
+}
+
+#cart-toggler.cart-visible {
+  #arrow-hide {
+    display: none;
+  }
+
+  #cart-icon {
+    display: block;
   }
 }

@@ -4,6 +4,7 @@
 <head lang="en">
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza</title>
 
     <!-- Bootsrap CSS -->
@@ -23,7 +24,7 @@
 
 <body>
     <div id="wrapper">
-        <div id="pizza-main">
+        <div id="pizza-main" class="cart-visible">
 
             <nav id="navbar" class="navbar sticky-top bg-dark">
                 <div id="first-line">
@@ -274,9 +275,23 @@
                     </div>
                 </div>
             </div>
+
+            <div id="footer">
+                <p>Pizza.22 - практичний проект в межах курсу JavaScript у Києво-Могилянській Академії.</p>
+                <p>Доставка піци не здійснюється.</p>
+            </div>
         </div>
 
-        <div id="cart">
+        <div id="cart" class="cart-visible">
+            <button id="cart-toggler" class="btn btn-primary shadow-none cart-visible">
+                <div id="arrow-hide">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>924 грн.</span>
+                </div>
+            </button>
 
             <div id="cart-title">
                 <h4 id="title">Замовлення<span class="items-count">3</span></h4>
@@ -372,16 +387,29 @@
 
     </div>
 
-    <footer>
-        <p>Pizza.22 - практичний проект в межах курсу JavaScript в Києво-Могилянській Академії.</p>
-        <p>Доставка піци не здійснюється.</p>
-    </footer>
-
     <!-- jQuery JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
 
     <!--Bootsrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        const PIZZA_MAIN = $("#pizza-main");
+        const CART = $("#cart");
+        const CART_BUTTON = $("#cart-toggler");
+
+        if (screen.width > 500) {
+            toggleButton();
+        }
+
+        function toggleButton() {
+            PIZZA_MAIN.toggleClass("cart-visible");
+            CART.toggleClass("cart-visible");
+            CART_BUTTON.toggleClass("cart-visible");
+        }
+
+        CART_BUTTON.click(toggleButton);
+    </script>
 
     <!--Own JavaScript -->
     <!-- <script type="text/javascript"  src="assets/js/main.js"> </script> -->
