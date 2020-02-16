@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza KMA</title>
+    <link rel="icon" href="assets/images/home-icon.png">
+
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a2d37f0955.js" crossorigin="anonymous"></script>
+
+    <!-- LESS основний файл -->
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="pizza-main" class="cart-visible">
+
+            <nav id="navbar" class="navbar sticky-top bg-dark">
+                <div id="first-line">
+                    <span id="phone">(044) 222 5 222</span>
+                    <span id="time" class="d-none d-lg-inline-block">24 години/7 днів на тиждень</span>
+                    <span id="delivery" class="d-none d-xl-inline-block">Безкоштовна доставка піци</span>
+                    <button id="signin" class="btn btn-warning shadow-none float-right">Ввійти</button>
+                </div>
+                <div id="second-line">
+                    <div id="title" class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">Піца
+                    </div>
+                </div>
+            </nav>
+
+            <div id="label-pizza">
+                <div class="label-text">
+                    <div id="first-line">PIZZA</div>
+                    <div id="second-line">KMA</div>
+                </div>
+                <img src="assets/images/discount.svg">
+            </div>
+
+            <div id="label-discount">
+                <img src="assets/images/discount.svg">
+                <div class="label-text">
+                    <div id="first-line">ЦЬОГО
+                        <br>ТИЖНЯ
+                        <br>НА ВСЕ</div>
+                    <div id="second-line">
+                        <span>-20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="header">
+                <h2 id="header-title"></h2>
+                <span id="header-count"></span>
+            </div>
+
+            <div id="filters">
+                <ul id="filters-list" class="nav nav-pills justify-content-center">
+                    
+                </ul>
+            </div>
+
+            <div id="pizza-list-container">
+                <div class="container">
+                    <div id="pizza-list" class="row">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer">
+                <p>Pizza.22 - практичний проект в межах курсу JavaScript у Києво-Могилянській Академії.</p>
+                <p>Доставка піци не здійснюється.</p>
+            </div>
+        </div>
+
+        <div id="cart" class="cart-visible d-flex flex-column">
+
+            <button id="cart-toggler" class="btn btn-primary shadow-none cart-visible">
+                <div id="arrow-hide">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="total-price-value"></span>
+                    <span id="currency">грн.</span>
+                </div>
+            </button>
+
+            <div id="cart-title">
+                <h4 id="title">
+                    Замовлення
+                    <span id="cart-items-count" class="items-count"></span>
+                </h4>
+                <button id="clear-order" class="btn btn-link">Очистити замовлення</button>
+            </div>
+
+            <div id="cart-body">
+
+            </div>
+
+            <div id="cart-checkout" class="mt-auto">
+                <span id="price-label">Сума замовлення</span>
+                <span id="price" class="float-right">
+                    <span class="total-price-value"></span>
+                    грн.
+                </span>
+                <div id="order">
+                    <button class="btn btn-order shadow-none">Замовити</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- jQuery JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+    <!--Bootsrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!--Own JavaScript -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+
+</html>

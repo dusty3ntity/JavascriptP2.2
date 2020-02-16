@@ -1,0 +1,30 @@
+@mainColor: #eca032;
+@mainColorDarker: #ea862e;
+@secondaryColor: gray;
+@animationDuration: 0.5s;
+
+@import "pizza/pizza-main";
+@import "pizza/pizza-card";
+@import "pizza/cart";
+@import "pizza/buttons";
+@import "pizza/navbar";
+@import "pizza/footer";
+@import "pizza/labels";
+
+#wrapper {
+  background: @backgroundColor;
+}
+
+#pizza-main.cart-visible {
+  margin-right: 0;
+}
+
+#cart.cart-visible {
+  right: -@cartWidth;
+}
+
+@media (max-width: 650px) {
+  #pizza-main {
+    margin-right: 0;
+  }
+}
