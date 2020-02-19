@@ -272,7 +272,6 @@ const PIZZA_SIZE = {
 let CART = [];
 
 const $CART = $("#cart-body");
-const $CART_BUTTON = $("#cart-toggler");
 const $ITEMS_COUNT = $("#cart-items-count");
 const $TOTAL_PRICE = $(".total-price-value");
 
@@ -281,7 +280,7 @@ $("#clear-order").click(clearCart);
 function addToCart(pizza, size) {
     let pizzaInCart;
     for (let i = 0; i < CART.length; i++)
-        if (CART[i].pizza === pizza && CART[i].size === size) {
+        if (CART[i].pizza.title === pizza.title && CART[i].size.field === size.field) {
             pizzaInCart = CART[i];
             break;
         }
