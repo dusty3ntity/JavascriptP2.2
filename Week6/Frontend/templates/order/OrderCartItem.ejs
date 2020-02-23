@@ -1,0 +1,36 @@
+<% 
+    function getPizzaCount(quantity) {
+        let count = quantity + "";
+        if (/.*1/.test(count) && !/.*11/.test(count))
+            return quantity + " піца"
+        
+        if (/.*[2-4]/.test(count) && !/.*1[2-4]/.test(count))
+            return quantity + " піци";
+        return quantity + " піц"; 
+    }
+%> 
+
+<div class="order-item">
+    <span class="item-name">
+        <%= pizza.title %> (<%= size.string %>)
+    </span>
+    <img class="item-picture" src="<%= pizza.icon %>" alt="Pizza">
+    <div class="item-size">
+        <span class="size">
+            <img src="assets/images/size-icon.svg" alt="Size">
+            <%= pizza[size.field].size %>
+        </span>
+        <span class="weight">
+            <img src="assets/images/weight.svg" alt="Weight">
+            <%= pizza[size.field].weight %>
+        </span>
+    </div>
+    <div class="item-buttons">
+        <span class="price">
+            <%= pizza[size.field].price * quantity %>
+            грн.</span>
+        <span class="item-count">
+            <%= getPizzaCount(quantity) %>
+        </span>
+    </div>
+</div>

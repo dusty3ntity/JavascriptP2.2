@@ -1,0 +1,64 @@
+#order-form-container {
+    padding: 0 20px;
+    padding-top: 40px;
+
+    #form-container {
+        padding: 20px 10px;
+
+        #order-form {
+            label {
+                text-align: right;
+            }
+
+            input {
+                color: black;
+            }
+
+            label.validation-error {
+                color: red;
+            }
+
+            input.validation-error {
+                border-color: red;
+            }
+
+            label.validation-success {
+                color: green;
+            }
+
+            input.validation-success {
+                border-color: green;
+            }
+
+            p {
+                color: red;
+                margin: 0;
+                display: none;
+            }
+
+            p.visible {
+                display: block;
+            }
+        }
+    
+        #order-summary {
+            padding: 30px 20px;
+            background: white;
+            border: 1px solid @borderColor;
+            border-left: 6px solid orange;
+            border-radius: 4px;
+
+            h5, h6 {
+                font-weight: bold;
+
+                span {
+                    font-weight: 400;
+                }
+            }
+
+            h6 {
+                margin-top: 14px;
+            }
+        }
+    }
+}

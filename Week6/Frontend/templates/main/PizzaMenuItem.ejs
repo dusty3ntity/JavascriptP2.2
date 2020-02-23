@@ -1,0 +1,67 @@
+<%
+function getIngredientsArray(pizza) {
+    var content = pizza.content;
+    var result = [];
+
+    Object.keys(content).forEach(function(key){
+        result = result.concat(content[key]);
+    });
+    
+    return result;
+}
+%>
+
+<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+    <% if(pizza.isNew) { %>
+    <div class="badge badge-danger badge-state">Нова</div>
+    <% } else if(pizza.isPopular) {%>
+    <div class="badge badge-success badge-state">Популярна</div>
+    <% } %>
+    <div class="img-thumbnail pizza-card">
+        <img class="pizza-icon figure-img" src="<%= pizza.icon %>" alt="Pizza">
+
+        <div class="pizza-body">
+            <h3 class="pizza-name">
+                <%= pizza.title %>
+            </h3>
+            <p class="pizza-type">
+                <%= pizza.type %>
+            </p>
+            <p class="pizza-description">
+                <%= getIngredientsArray(pizza).join(", ") %>
+            </p>
+
+            <div class="container">
+                <div class="row">
+
+                    <% if(pizza.smallSize) { %>
+                    <div class="col pizza-choice text-center">
+                        <div class="pizza-size">
+                            <span> <img src="assets/images/size-icon.svg" alt="Size"> <%= pizza.smallSize.size %></span>
+                            <span> <img src="assets/images/weight.svg" alt="Weight"> <%= pizza.smallSize.weight %></span>
+                        </div>
+                        <div class="pizza-buy">
+                            <span class="pizza-price"><%= pizza.smallSize.price %></span>
+                            <span class="pizza-price-currency">грн.</span>
+                            <button class="btn btn-buy buy-small shadow-none">Купити</button>
+                        </div>
+                    </div>
+                    <% } if(pizza.bigSize) {%>
+                    <div class="col pizza-choice text-center">
+                        <div class="pizza-size">
+                            <span> <img src="assets/images/size-icon.svg" alt="Size"> <%= pizza.bigSize.size %></span>
+                            <span> <img src="assets/images/weight.svg" alt="Weight"> <%= pizza.bigSize.weight %></span>
+                        </div>
+                        <div class="pizza-buy">
+                            <span class="pizza-price"><%= pizza.bigSize.price %></span>
+                            <span class="pizza-price-currency">грн.</span>
+                            <button class="btn btn-buy buy-big shadow-none">Купити</button>
+                        </div>
+                    </div>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
