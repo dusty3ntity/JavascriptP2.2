@@ -24,7 +24,7 @@ function initializeCart() {
     });
 
     $TOTAL_PRICE.text(totalPrice);
-    $ITEMS_COUNT.text(cart.length);
+    $ITEMS_COUNT.text(Cart.length);
     $("#edit-order-button").click(() => {
         window.location.href = "/";
     });

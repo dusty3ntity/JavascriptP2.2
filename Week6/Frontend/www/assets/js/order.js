@@ -171,7 +171,7 @@ function initializeCart() {
     });
 
     $TOTAL_PRICE.text(totalPrice);
-    $ITEMS_COUNT.text(cart.length);
+    $ITEMS_COUNT.text(Cart.length);
     $("#edit-order-button").click(() => {
         window.location.href = "/";
     });
@@ -192,6 +192,11 @@ $(document).ready(() => {
     const API = require("../API");
 
     ORDER_CART.initializeCart();
+    if (!ORDER_CART.getCartItems() || ORDER_CART.getCartItems().length == 0) {
+        alert("Ваша корзина порожня! Додайте щось до неї...");
+        window.location.href = "/";
+    }
+
 
     $("#process-order").click(() => {
         FORM_VALIDATOR.initializeValidators();
