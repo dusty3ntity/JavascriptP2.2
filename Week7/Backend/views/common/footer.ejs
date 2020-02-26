@@ -1,0 +1,20 @@
+<!-- jQuery JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+
+<!--Bootsrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<% if(maps) { %>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7cJsb3qRTaG-9Xez0CY6VIIn8DCzGUI&language=uk"></script>
+<% } %>
+
+<% if(liqpay) { %>
+<script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
+<% } %>
+
+<!--Own JavaScript -->
+<script type="text/javascript" src="assets/js/<%= jsFile %>"></script>
+</body>
+
+</html>

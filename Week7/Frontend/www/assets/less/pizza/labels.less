@@ -1,0 +1,75 @@
+@labelsTextColor: white;
+
+#label-pizza {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  z-index: 1100;
+  text-align: center;
+
+  img {
+    transform: rotate(180deg);
+  }
+
+  .label-text {
+    background-color: @mainColorDarker;
+    color: @labelsTextColor;
+  }
+
+  #first-line {
+    font-size: 22px;
+    padding-top: 10px;
+  }
+
+  #second-line {
+    font-size: 28px;
+    margin-bottom: -10px;
+    padding-bottom: 15px;
+  }
+}
+
+#label-discount {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  z-index: 1100;
+  text-align: center;
+
+  .label-text {
+    background-color: @mainColorDarker;
+    color: @labelsTextColor;
+    margin-top: -6px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #first-line {
+    font-size: 16px;
+    padding-top: 10px;
+    margin-bottom: 70px;
+    height: 22px;
+  }
+
+  #second-line {
+    font-size: 14px;
+    padding-bottom: 8px;
+
+    span {
+      padding: 6px 24px;
+      border-top: 1px dashed red;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #label-discount {
+    display: none;
+  }
+}
+
+.badge-state {
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+  padding: 8px;
+}

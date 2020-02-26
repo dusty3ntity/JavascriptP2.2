@@ -1,0 +1,43 @@
+@navbarTextColor: lightgray;
+@navbarTextColorLighter: white;
+@navbarBorderColor: gray;
+@navbarOpacity: 0.96;
+
+#navbar {
+  opacity: @navbarOpacity;
+  z-index: 1000;
+  padding: 4px 20px 10px 130px;
+  color: @navbarTextColor;
+
+  #first-line {
+    width: 100%;
+    border-bottom: 1px solid @navbarBorderColor;
+    padding-bottom: 4px;
+
+    #phone {
+      font-size: 20px;
+    }
+
+    #time {
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    #delivery {
+      font-size: 18px;
+      margin-left: 20px;
+    }
+
+    #signin {
+      color: white;
+    }
+  }
+
+  #second-line {
+    padding-top: 8px;
+
+    #title {
+      color: @navbarTextColorLighter;
+    }
+  }
+}

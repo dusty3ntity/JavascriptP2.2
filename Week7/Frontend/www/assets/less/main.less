@@ -1,0 +1,58 @@
+@mainColor: #eca032;
+@mainColorDarker: #ea862e;
+@secondaryColor: gray;
+@animationDuration: 0.5s;
+
+@import "pizza/pizza-main";
+@import "pizza/pizza-card";
+@import "pizza/cart";
+@import "pizza/buttons";
+@import "pizza/navbar";
+@import "pizza/footer";
+@import "pizza/labels";
+
+@import "order-main";
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  background: @backgroundColor;
+  margin-right: @cartWidth;
+  transition: all @animationDuration ease;
+
+  min-height: 100%;
+  margin-bottom: -108px; 
+}
+
+#wrapper:after {
+  content: "";
+  display: block;
+}
+
+#footer, #wrapper:after {
+  height: 108px; 
+}
+
+#wrapper.cart-hidden {
+  margin-right: 0;
+}
+
+#footer.cart-hidden {
+  padding-right: 10px;
+}
+
+#cart.cart-hidden {
+  right: -@cartWidth;
+}
+
+@media (max-width: 650px) {
+  #wrapper {
+    margin-right: 0;
+  }
+
+  #footer {
+    padding-right: 10px;
+  }
+}

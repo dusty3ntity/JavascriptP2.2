@@ -1,0 +1,33 @@
+<div class="order-item">
+    <span class="item-name">
+        <%= pizza.title %> (<%= size.string %>)
+    </span>
+    <img class="item-picture" src="<%= pizza.icon %>" alt="Pizza">
+    <div class="item-size">
+        <span class="size">
+            <img src="assets/images/size-icon.svg" alt="Size">
+            <%= pizza[size.field].size %>
+        </span>
+        <span class="weight">
+            <img src="assets/images/weight.svg" alt="Weight">
+            <%= pizza[size.field].weight %>
+        </span>
+    </div>
+    <div class="item-buttons">
+        <span class="price">
+            <%= pizza[size.field].price * quantity %>
+            грн.</span>
+        <button class="btn btn-danger minus shadow-none">
+            <i class="fas fa-minus"></i>
+        </button>
+        <span class="item-count">
+            <%= quantity %>
+        </span>
+        <button class="btn btn-success plus shadow-none">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button class="btn remove shadow-none">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+</div>
