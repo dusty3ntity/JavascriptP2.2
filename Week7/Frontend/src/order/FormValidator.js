@@ -26,6 +26,9 @@ function initializeValidators() {
 
 function initializeValidator(input, regex, label, errorLabel) {
     input.focusout(() => validate());
+    $("#process-order").click(() => {
+        validate();
+    });
 
     function validate() {
         if (!regex.test(input.val().trim())) {

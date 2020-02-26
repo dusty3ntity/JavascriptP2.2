@@ -93,7 +93,7 @@ exports.PizzaCartItem = ejs.compile("<div class=\"order-item\">\n    <span class
 exports.PizzaFilter = ejs.compile("<li class=\"nav-item\">\r\n    <a class=\"nav-link\" href=\"#\">\r\n        <%= filter.name %>\r\n    </a>\r\n</li>");
 
 exports.OrderCartItem = ejs.compile("<% \r\n    function getPizzaCount(quantity) {\r\n        let count = quantity + \"\";\r\n        if (/.*1/.test(count) && !/.*11/.test(count))\r\n            return quantity + \" піца\"\r\n        \r\n        if (/.*[2-4]/.test(count) && !/.*1[2-4]/.test(count))\r\n            return quantity + \" піци\";\r\n        return quantity + \" піц\"; \r\n    }\r\n%> \r\n\r\n<div class=\"order-item\">\r\n    <span class=\"item-name\">\r\n        <%= pizza.title %> (<%= size.string %>)\r\n    </span>\r\n    <img class=\"item-picture\" src=\"<%= pizza.icon %>\" alt=\"Pizza\">\r\n    <div class=\"item-size\">\r\n        <span class=\"size\">\r\n            <img src=\"assets/images/size-icon.svg\" alt=\"Size\">\r\n            <%= pizza[size.field].size %>\r\n        </span>\r\n        <span class=\"weight\">\r\n            <img src=\"assets/images/weight.svg\" alt=\"Weight\">\r\n            <%= pizza[size.field].weight %>\r\n        </span>\r\n    </div>\r\n    <div class=\"item-buttons\">\r\n        <span class=\"price\">\r\n            <%= pizza[size.field].price * quantity %>\r\n            грн.</span>\r\n        <span class=\"item-count\">\r\n            <%= getPizzaCount(quantity) %>\r\n        </span>\r\n    </div>\r\n</div>");
-exports.LiqPayWidget = ejs.compile("<h3>2. Оплата</h3>\r\n\r\n<div id=\"form-container\" class=\"row\">\r\n    <div id=\"liqpay\" class=\"col-12\"></div>\r\n</div>");
+exports.LiqPayWidget = ejs.compile("<h3>2. Оплата</h3>\r\n\r\n<div id=\"form-container\" class=\"row\">\r\n    <div id=\"liqpay\" class=\"col-12\"></div>\r\n    <div id=\"liqpay-result\" class=\"col-12\">\r\n        <div class=\"alert alert-success\" role=\"alert\">\r\n            Замовлення прийняте! Очікуйте доставку.\r\n        </div>\r\n        <button id=\"btn-home\" class=\"btn btn-home shadow-none float-right\" onclick=\"window.location.href = '/';\">На головну</button>\r\n    </div>\r\n</div>");
 
 },{"ejs":12}],5:[function(require,module,exports){
 const SUMMARY_OPERATOR = require("./SummaryOperator");
@@ -124,6 +124,9 @@ function initializeValidators() {
 
 function initializeValidator(input, regex, label, errorLabel) {
     input.focusout(() => validate());
+    $("#process-order").click(() => {
+        validate();
+    });
 
     function validate() {
         if (!regex.test(input.val().trim())) {
@@ -309,9 +312,6 @@ let Cart;
 
 function initializeCart() {
     Cart = LOCAL_STORAGE.get("cart");
-    if (!Cart)
-        console.log("empty cart");
-
     $CART.html("");
 
     let totalPrice = 0;
@@ -337,6 +337,7 @@ function getCartItems() {
 function clearCart() {
     Cart = [];
     LOCAL_STORAGE.set("cart", Cart);
+    initializeCart();
 }
 
 exports.initializeCart = initializeCart;
@@ -391,28 +392,36 @@ $(document).ready(() => {
             let $node = $(htmlCode);
 
             API.createOrder(data, function(err, result) {
-                var data_res = JSON.parse(result);
-
-                LiqPayCheckout.init({
-                    data: data_res.data,
-                    signature: data_res.signature,
-                    embedTo: "#liqpay",
-                    mode: "embed" //	embed	||	popup
-                })
-                    .on("liqpay.callback", function(items) {
-                        ORDER_CART.clearCart();
-                        console.log(items.status);
-                        console.log(items);
-                    })
-                    .on("liqpay.close", function(items) {
-                        window.location.href = "/";
-                    });
+                initLiqPay(result);
             });
 
             $node.appendTo($container);
             $container.slideDown(250);
         });
     });
+
+    function initLiqPay(requestResult) {
+        let data = JSON.parse(requestResult);
+
+        LiqPayCheckout.init({
+            data: data.data,
+            signature: data.signature,
+            embedTo: "#liqpay",
+            mode: "embed", //	embed	||	popup
+            language: "uk"
+        })
+            .on("liqpay.callback", result =>
+                processPaymentResult(result.status)
+            )
+            .on("liqpay.close", () => (window.location.href = "/"));
+    }
+
+    function processPaymentResult(paymentStatus) {
+        if (paymentStatus === "success" || paymentStatus === "sandbox") {
+            ORDER_CART.clearCart();
+            $("#liqpay-result").show();
+        }
+    }
 });
 
 },{"../API":1,"../Templates":4,"./FormValidator":5,"./GoogleMaps":6,"./OrderCart":7}],10:[function(require,module,exports){

@@ -58,6 +58,5 @@ exports.createOrder = (req, res) => {
         data: order_base64,
         signature: sha1(LIQPAY_PRIVATE_KEY + order_base64 + LIQPAY_PRIVATE_KEY)
     });
-    console.log(result);
     res.send(result);
 };

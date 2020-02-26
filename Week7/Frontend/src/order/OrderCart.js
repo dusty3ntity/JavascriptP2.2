@@ -10,9 +10,6 @@ let Cart;
 
 function initializeCart() {
     Cart = LOCAL_STORAGE.get("cart");
-    if (!Cart)
-        console.log("empty cart");
-
     $CART.html("");
 
     let totalPrice = 0;
@@ -38,6 +35,7 @@ function getCartItems() {
 function clearCart() {
     Cart = [];
     LOCAL_STORAGE.set("cart", Cart);
+    initializeCart();
 }
 
 exports.initializeCart = initializeCart;

@@ -28,26 +28,34 @@ $(document).ready(() => {
             let $node = $(htmlCode);
 
             API.createOrder(data, function(err, result) {
-                var data_res = JSON.parse(result);
-
-                LiqPayCheckout.init({
-                    data: data_res.data,
-                    signature: data_res.signature,
-                    embedTo: "#liqpay",
-                    mode: "embed" //	embed	||	popup
-                })
-                    .on("liqpay.callback", function(items) {
-                        ORDER_CART.clearCart();
-                        console.log(items.status);
-                        console.log(items);
-                    })
-                    .on("liqpay.close", function(items) {
-                        window.location.href = "/";
-                    });
+                initLiqPay(result);
             });
 
             $node.appendTo($container);
             $container.slideDown(250);
         });
     });
+
+    function initLiqPay(requestResult) {
+        let data = JSON.parse(requestResult);
+
+        LiqPayCheckout.init({
+            data: data.data,
+            signature: data.signature,
+            embedTo: "#liqpay",
+            mode: "embed", //	embed	||	popup
+            language: "uk"
+        })
+            .on("liqpay.callback", result =>
+                processPaymentResult(result.status)
+            )
+            .on("liqpay.close", () => (window.location.href = "/"));
+    }
+
+    function processPaymentResult(paymentStatus) {
+        if (paymentStatus === "success" || paymentStatus === "sandbox") {
+            ORDER_CART.clearCart();
+            $("#liqpay-result").show();
+        }
+    }
 });
